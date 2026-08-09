@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-charcoal-200/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-espresso-900 font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-golden-200 text-espresso-900;
+  }
+}
+
+@layer components {
+  .container-cafe {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-espresso-700 px-6 py-3 text-sm font-medium text-cream-50 transition-all duration-300 hover:bg-espresso-800 hover:shadow-warm focus:outline-none focus:ring-2 focus:ring-golden-400 focus:ring-offset-2 focus:ring-offset-cream-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-espresso-300 bg-transparent px-6 py-3 text-sm font-medium text-espresso-800 transition-all duration-300 hover:border-espresso-500 hover:bg-espresso-50 focus:outline-none focus:ring-2 focus:ring-golden-400 focus:ring-offset-2 focus:ring-offset-cream-50;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .card-cafe {
+    @apply rounded-2xl border border-cream-200 bg-white/80 shadow-warm backdrop-blur-sm;
+  }
+
+  .heading-display {
+    @apply font-display text-3xl font-bold tracking-tight text-espresso-900 sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-section {
+    @apply font-display text-2xl font-semibold tracking-tight text-espresso-900 sm:text-3xl;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed text-espresso-700;
+  }
+
+  .divider-warm {
+    @apply mx-auto h-px w-24 bg-gradient-to-r from-transparent via-golden-400 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
