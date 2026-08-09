@@ -36,8 +36,6 @@ This is a modern, responsive website built with Next.js that showcases the cafe'
 │   ├── constants.ts          # Cafe info
 │   ├── menu-data.ts          # Menu items & prices
 │   └── utils.ts              # Helper functions
-├── public/
-│   └── images/               # Cafe photographs
 └── package.json
 ```
 

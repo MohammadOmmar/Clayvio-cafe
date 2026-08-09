@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { menuCategories } from '@/lib/menu-data';
 import { formatPrice } from '@/lib/utils';
-import { Coffee } from 'lucide-react';
+import { Coffee, Utensils } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Menu',
@@ -25,7 +24,6 @@ function PriceDisplay({
     );
   }
 
-  // Multi-price items like Chai (Kulhad/Simple) and Shakes (With/Without Ice Cream)
   return (
     <div className="flex flex-wrap gap-3">
       {prices.map((p) => (
@@ -47,20 +45,18 @@ export default function MenuPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative bg-espresso-950 pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/Screenshot_20260809_094457_Instagram.jpg"
-            alt="Clayvio Cafe menu board"
-            fill
-            priority
-            className="object-cover opacity-25"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-espresso-950 to-espresso-950/50" />
+      <section className="relative bg-gradient-to-br from-espresso-900 via-espresso-800 to-wood-800 pt-32 pb-16 sm:pt-40 sm:pb-20">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute top-0 left-1/4 h-64 w-64 rounded-full bg-golden-400/10 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-cream-300/5 blur-3xl" />
         </div>
+
         <div className="container-cafe relative z-10 text-center">
-          <p className="font-script text-2xl text-golden-300 sm:text-3xl">
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-golden-400/20 backdrop-blur-sm">
+            <Utensils className="h-8 w-8 text-golden-300" aria-hidden="true" />
+          </div>
+          <p className="font-script text-3xl text-golden-300 sm:text-4xl">
             Our Menu
           </p>
           <h1 className="mt-3 text-4xl font-bold text-cream-50 sm:text-5xl">

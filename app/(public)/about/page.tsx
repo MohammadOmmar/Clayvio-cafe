@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Coffee, MapPin, Users } from 'lucide-react';
+import { ArrowRight, Coffee, MapPin, Users, BookOpen } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -14,20 +13,15 @@ export default function AboutPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative bg-espresso-950 pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/Screenshot_20260809_094555_Instagram.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-25"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-espresso-950 to-espresso-950/50" />
+      <section className="relative bg-gradient-to-br from-espresso-900 via-espresso-800 to-wood-800 pt-32 pb-16 sm:pt-40 sm:pb-20">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute top-0 left-1/4 h-64 w-64 rounded-full bg-golden-400/10 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-cream-300/5 blur-3xl" />
         </div>
+
         <div className="container-cafe relative z-10 text-center">
-          <p className="font-script text-2xl text-golden-300 sm:text-3xl">
+          <p className="font-script text-3xl text-golden-300 sm:text-4xl">
             About
           </p>
           <h1 className="mt-3 text-4xl font-bold text-cream-50 sm:text-5xl">
@@ -43,45 +37,38 @@ export default function AboutPage() {
       <section className="section-padding bg-cream-50">
         <div className="container-cafe">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Illustrated graphic */}
+            <div className="relative">
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-golden-100 via-cream-200 to-wood-100 shadow-warm-lg">
+                <div className="flex h-full items-center justify-center">
+                  <svg viewBox="0 0 200 200" className="h-48 w-48 text-espresso-700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Open book illustration */}
+                    <path d="M40 140 L40 60 Q40 50 50 50 L100 50 L100 140" stroke="currentColor" strokeWidth="3" fill="none"/>
+                    <path d="M100 50 L150 50 Q160 50 160 60 L160 140" stroke="currentColor" strokeWidth="3" fill="none"/>
+                    <path d="M100 50 L100 140" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M55 70 L95 70" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M55 85 L95 85" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M55 100 L85 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M105 70 L145 70" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M105 85 L145 85" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                    <path d="M105 100 L135 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
             <div>
-              <h2 className="heading-display">
+              <p className="font-script text-3xl text-golden-600">Welcome to</p>
+              <h2 className="heading-display mt-2">
                 A Cozy Space Built Around Chai
               </h2>
               <div className="divider-warm mt-4 ml-0" />
               <p className="text-body mt-6">
-                Clayvio Cafe is a warm, inviting cafe in Sopore. Step inside
-                and you'll find wooden furniture, cream-beige walls, a
-                wood-slat ceiling, and soft golden pendant lighting — a space
-                designed to feel like home.
+                Clayvio Cafe is a warm, inviting cafe in Sopore. Step inside and you'll find wooden furniture, cream-beige walls, a wood-slat ceiling, and soft golden pendant lighting — a space designed to feel like home.
               </p>
               <p className="text-body mt-4">
-                Our menu centers on chai, served the traditional way in
-                kulhad cups, alongside coffee, sandwiches, pizza, bites,
-                shakes, and mojitos. Whether you're catching up with friends
-                or taking a quiet moment for yourself, there's a corner here
-                for you.
+                Our menu centers on chai, served the traditional way in kulhad cups, alongside coffee, sandwiches, pizza, bites, shakes, and mojitos. Whether you're catching up with friends or taking a quiet moment for yourself, there's a corner here for you.
               </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="overflow-hidden rounded-2xl shadow-warm">
-                <Image
-                  src="/images/Screenshot_20260809_094443_Instagram.jpg"
-                  alt="Clayvio Cafe interior with wooden furniture"
-                  width={400}
-                  height={500}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="mt-8 overflow-hidden rounded-2xl shadow-warm">
-                <Image
-                  src="/images/Screenshot_20260809_094555_Instagram.jpg"
-                  alt="Clayvio Cafe wood slat ceiling and pendant lighting"
-                  width={400}
-                  height={500}
-                  className="h-full w-full object-cover"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -104,8 +91,7 @@ export default function AboutPage() {
                 Kulhad Chai
               </h3>
               <p className="mt-2 text-sm text-espresso-600">
-                Traditional chai served in authentic clay kulhads — the way
-                it's meant to be enjoyed.
+                Traditional chai served in authentic clay kulhads — the way it's meant to be enjoyed.
               </p>
             </div>
             <div className="card-cafe p-6 text-center">
@@ -116,8 +102,7 @@ export default function AboutPage() {
                 Community
               </h3>
               <p className="mt-2 text-sm text-espresso-600">
-                A warm, welcoming space for friends, family, and the local
-                community to gather.
+                A warm, welcoming space for friends, family, and the local community to gather.
               </p>
             </div>
             <div className="card-cafe p-6 text-center">
@@ -136,18 +121,24 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-espresso-900 py-16">
+      <section className="bg-gradient-to-br from-espresso-900 via-espresso-800 to-wood-900 py-16">
         <div className="container-cafe text-center">
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-golden-400/20 backdrop-blur-sm">
+            <BookOpen className="h-8 w-8 text-golden-300" aria-hidden="true" />
+          </div>
           <h2 className="text-2xl font-bold text-cream-50 sm:text-3xl">
             Come Experience It Yourself
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-cream-200">
-            Explore our menu or check out photos of the cafe before you visit.
+            Explore our menu or visit us to see the cafe in person.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/menu" className="btn-primary">
               View Menu
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href="/contact" className="btn-secondary border-cream-200 text-cream-100 hover:bg-cream-100/10 hover:border-cream-100">
+              Contact Us
             </Link>
           </div>
         </div>
