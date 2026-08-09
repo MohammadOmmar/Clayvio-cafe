@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Coffee, MapPin, Utensils, Pizza, Sandwich, GlassWater } from 'lucide-react';
+import { ArrowRight, Coffee, MapPin, Utensils } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 
 export default function HomePage() {
@@ -58,21 +59,15 @@ export default function HomePage() {
       <section className="section-padding bg-cream-50">
         <div className="container-cafe">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Illustrated graphic instead of photo */}
             <div className="relative">
-              <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-golden-100 to-cream-200 shadow-warm-lg">
-                <div className="flex h-full items-center justify-center">
-                  <svg viewBox="0 0 200 200" className="h-48 w-48 text-espresso-700" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Kulhad cup illustration */}
-                    <path d="M60 80 L60 140 Q60 160 100 160 Q140 160 140 140 L140 80" stroke="currentColor" strokeWidth="3" fill="none"/>
-                    <path d="M60 80 Q100 70 140 80" stroke="currentColor" strokeWidth="3" fill="none"/>
-                    <path d="M140 90 Q160 90 160 110 Q160 130 140 130" stroke="currentColor" strokeWidth="3" fill="none"/>
-                    {/* Steam */}
-                    <path d="M80 70 Q80 50 90 40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5"/>
-                    <path d="M100 65 Q100 45 110 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5"/>
-                    <path d="M120 70 Q120 50 130 40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5"/>
-                  </svg>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-warm-lg">
+                <Image
+                  src="/images/Screenshot_20260809_094555_Instagram.jpg"
+                  alt="Clayvio Cafe interior with wood slat ceiling and warm pendant lighting"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
               </div>
             </div>
 
@@ -129,48 +124,47 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: Coffee,
+                image: '/images/Screenshot_20260809_094514_Instagram.jpg',
                 title: 'Chai in Kulhad',
                 desc: 'Freshly brewed, served in traditional clay cups.',
-                color: 'from-golden-100 to-cream-200'
               },
               {
-                icon: GlassWater,
+                image: '/images/Screenshot_20260809_094526_Instagram.jpg',
                 title: 'Cold Coffee',
                 desc: 'Creamy, chilled, and made to order.',
-                color: 'from-espresso-100 to-cream-200'
               },
               {
-                icon: Pizza,
+                image: '/images/Screenshot_20260809_094539_Instagram.jpg',
                 title: 'Pizza',
                 desc: 'Hot, cheesy, and satisfying.',
-                color: 'from-red-50 to-cream-200'
               },
               {
-                icon: Sandwich,
+                image: '/images/Screenshot_20260809_094615_Instagram.jpg',
                 title: 'Snacks & More',
                 desc: 'Sandwiches, bites, shakes, and mojitos.',
-                color: 'from-green-50 to-cream-200'
               },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="group overflow-hidden rounded-2xl bg-white shadow-warm transition-shadow hover:shadow-warm-lg"
-                >
-                  <div className={`aspect-[4/3] bg-gradient-to-br ${item.color} flex items-center justify-center`}>
-                    <Icon className="h-16 w-16 text-espresso-700 transition-transform duration-500 group-hover:scale-110" aria-hidden="true" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-semibold text-espresso-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-espresso-600">{item.desc}</p>
-                  </div>
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group overflow-hidden rounded-2xl bg-white shadow-warm transition-shadow hover:shadow-warm-lg"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.desc}
+                    width={400}
+                    height={300}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-              );
-            })}
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-semibold text-espresso-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-espresso-600">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-12 text-center">

@@ -3,7 +3,7 @@ export const CAFE = {
   tagline: 'Chai • Coffee • Community',
   location: 'New Colony, Sopore',
   locationDetail: 'Near Arco\'s & Khyber Medicos',
-  contact: 'CALL OR DM: 91C9884947',
+  contact: 'CALL OR DM: 9103884947',
   instagram: 'clayvio.cafe',
 } as const;
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { MapPin, Phone, Instagram, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Instagram } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -72,17 +73,15 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Illustrated graphic */}
-            <div className="mt-12 overflow-hidden rounded-3xl bg-gradient-to-br from-golden-100 via-cream-200 to-wood-100 shadow-warm-lg">
-              <div className="flex h-64 items-center justify-center">
-                <svg viewBox="0 0 200 200" className="h-32 w-32 text-espresso-700" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Location pin illustration */}
-                  <path d="M100 20 C70 20 50 45 50 75 C50 110 100 180 100 180 C100 180 150 110 150 75 C150 45 130 20 100 20Z" stroke="currentColor" strokeWidth="3" fill="none"/>
-                  <circle cx="100" cy="75" r="15" stroke="currentColor" strokeWidth="3" fill="none"/>
-                  <path d="M85 60 L115 60" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                  <path d="M100 45 L100 55" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                </svg>
-              </div>
+            {/* Cafe image */}
+            <div className="mt-12 overflow-hidden rounded-3xl shadow-warm-lg">
+              <Image
+                src="/images/Screenshot_20260809_094555_Instagram.jpg"
+                alt="Clayvio Cafe interior with warm wooden ceiling and lighting"
+                width={1200}
+                height={600}
+                className="h-auto w-full object-cover"
+              />
             </div>
           </div>
         </div>

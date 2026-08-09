@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Coffee, MapPin, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Coffee, MapPin, Users } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -37,23 +38,15 @@ export default function AboutPage() {
       <section className="section-padding bg-cream-50">
         <div className="container-cafe">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Illustrated graphic */}
             <div className="relative">
-              <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-golden-100 via-cream-200 to-wood-100 shadow-warm-lg">
-                <div className="flex h-full items-center justify-center">
-                  <svg viewBox="0 0 200 200" className="h-48 w-48 text-espresso-700" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Open book illustration */}
-                    <path d="M40 140 L40 60 Q40 50 50 50 L100 50 L100 140" stroke="currentColor" strokeWidth="3" fill="none"/>
-                    <path d="M100 50 L150 50 Q160 50 160 60 L160 140" stroke="currentColor" strokeWidth="3" fill="none"/>
-                    <path d="M100 50 L100 140" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <path d="M55 70 L95 70" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                    <path d="M55 85 L95 85" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                    <path d="M55 100 L85 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                    <path d="M105 70 L145 70" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                    <path d="M105 85 L145 85" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                    <path d="M105 100 L135 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-                  </svg>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-warm-lg">
+                <Image
+                  src="/images/Screenshot_20260809_094443_Instagram.jpg"
+                  alt="Clayvio Cafe interior with warm wooden furniture"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
               </div>
             </div>
 
@@ -123,9 +116,6 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="bg-gradient-to-br from-espresso-900 via-espresso-800 to-wood-900 py-16">
         <div className="container-cafe text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-golden-400/20 backdrop-blur-sm">
-            <BookOpen className="h-8 w-8 text-golden-300" aria-hidden="true" />
-          </div>
           <h2 className="text-2xl font-bold text-cream-50 sm:text-3xl">
             Come Experience It Yourself
           </h2>
