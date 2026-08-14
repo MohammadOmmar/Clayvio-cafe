@@ -9,22 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Derived from Clayvio Cafe reference photographs
-        // Warm cream walls, dark chocolate furniture, warm wood, golden lighting
-        cream: {
-          50: "#FDFBF7",
-          100: "#FAF6EE",
-          200: "#F3ECDD",
-          300: "#E9DEC8",
-          400: "#DFD0B3",
-          500: "#D4C09A",
-        },
-        beige: {
-          50: "#F7F3EB",
-          100: "#EFE8D9",
-          200: "#E0D4BC",
-          300: "#CFBFA0",
-          400: "#BCA77F",
+        // Premium cafe palette — warm ivory, espresso, clay, brass, olive
+        parchment: {
+          50: "#FAF7F0", // soft cream
+          100: "#F4EFE6", // warm ivory / primary background
+          200: "#E9E0D2", // darker parchment / secondary background
+          300: "#DCCFBA",
+          400: "#C9B79C",
+          500: "#B39D7D",
         },
         espresso: {
           50: "#F5F0EB",
@@ -34,34 +26,46 @@ const config: Config = {
           400: "#8F6B52",
           500: "#6F4E3A",
           600: "#573C2C",
-          700: "#442E22",
-          800: "#352419",
-          900: "#291C14",
-          950: "#1A110A",
+          700: "#3A2720", // dark coffee
+          800: "#2A1B16", // deep espresso
+          900: "#1F1410",
+          950: "#140D0A",
         },
-        wood: {
-          50: "#F8F3EC",
-          100: "#EFE4D4",
-          200: "#DFC9A8",
-          300: "#CCA97C",
-          400: "#B88A57",
-          500: "#A4703F",
-          600: "#8A5A33",
-          700: "#71482B",
-          800: "#5C3B25",
-          900: "#4A301F",
+        clay: {
+          50: "#FBF3EF",
+          100: "#F5E3DA",
+          200: "#E9C4B3",
+          300: "#D9A084",
+          400: "#C88463",
+          500: "#B87557", // muted terracotta
+          600: "#A65F42", // clay / terracotta
+          700: "#8A4C34",
+          800: "#6E3C2A",
+          900: "#57301F",
         },
-        golden: {
-          50: "#FBF6E9",
-          100: "#F5E9C9",
-          200: "#EBD493",
-          300: "#E0BB5E",
-          400: "#D6A538",
-          500: "#C08E2A",
-          600: "#A57023",
-          700: "#85571F",
-          800: "#6E481F",
-          900: "#5E3D1E",
+        brass: {
+          50: "#FBF7EE",
+          100: "#F4EBD8",
+          200: "#E7D5AE",
+          300: "#D6BC82",
+          400: "#C5A76A",
+          500: "#B8955A", // warm brass
+          600: "#A07C45",
+          700: "#826338",
+          800: "#684E2E",
+          900: "#543E26",
+        },
+        olive: {
+          50: "#F5F5EF",
+          100: "#E8E8D9",
+          200: "#D0D0B4",
+          300: "#B0B08C",
+          400: "#8F8F6B",
+          500: "#6C6A4D", // muted olive
+          600: "#5A5840",
+          700: "#484634",
+          800: "#38362A",
+          900: "#2C2A21",
         },
         charcoal: {
           50: "#F5F5F4",
@@ -83,13 +87,17 @@ const config: Config = {
         script: ["var(--font-script)", "cursive"],
       },
       boxShadow: {
-        // Warm soft shadows instead of harsh dark ones
-        warm: "0 4px 24px -8px rgba(111, 78, 58, 0.15)",
-        "warm-lg": "0 8px 40px -12px rgba(111, 78, 58, 0.2)",
-        "warm-sm": "0 2px 12px -4px rgba(111, 78, 58, 0.12)",
+        // Warm soft shadows — subtle, tactile
+        warm: "0 4px 24px -8px rgba(42, 27, 22, 0.12)",
+        "warm-lg": "0 8px 40px -12px rgba(42, 27, 22, 0.16)",
+        "warm-sm": "0 2px 12px -4px rgba(42, 27, 22, 0.08)",
+        "inner-warm": "inset 0 2px 8px rgba(42, 27, 22, 0.06)",
       },
       borderRadius: {
         "4xl": "2rem",
+      },
+      letterSpacing: {
+        eyebrow: "0.2em",
       },
       keyframes: {
         "fade-in": {
@@ -97,18 +105,25 @@ const config: Config = {
           to: { opacity: "1" },
         },
         "slide-up": {
-          from: { opacity: "0", transform: "translateY(20px)" },
+          from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "slow-zoom": {
           from: { transform: "scale(1)" },
-          to: { transform: "scale(1.05)" },
+          to: { transform: "scale(1.06)" },
+        },
+        "scroll-line": {
+          "0%": { transform: "scaleY(0)", transformOrigin: "top" },
+          "50%": { transform: "scaleY(1)", transformOrigin: "top" },
+          "51%": { transform: "scaleY(1)", transformOrigin: "bottom" },
+          "100%": { transform: "scaleY(0)", transformOrigin: "bottom" },
         },
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out both",
         "slide-up": "slide-up 0.6s ease-out both",
         "slow-zoom": "slow-zoom 8s ease-in-out infinite alternate",
+        "scroll-line": "scroll-line 2s ease-in-out infinite",
       },
     },
   },

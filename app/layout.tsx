@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter, Caveat } from 'next/font/google';
+import { Cormorant_Garamond, Manrope, Caveat } from 'next/font/google';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import './globals.css';
 
 const display = Cormorant_Garamond({
@@ -8,7 +10,7 @@ const display = Cormorant_Garamond({
   variable: '--font-display',
 });
 
-const body = Inter({
+const body = Manrope({
   subsets: ['latin'],
   variable: '--font-body',
 });
@@ -64,9 +66,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${body.variable} ${script.variable} font-body`}
+        className={`${display.variable} ${body.variable} ${script.variable} font-body grain`}
       >
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

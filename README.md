@@ -11,6 +11,7 @@ This is a modern, responsive website built with Next.js that showcases the cafe'
 - **Next.js 15** — React framework with App Router
 - **TypeScript** — Type-safe development
 - **Tailwind CSS** — Utility-first styling
+- **Framer Motion** — Scroll-driven animations
 - **Lucide React** — Lightweight icons
 - **Next.js Image** — Optimized image delivery
 
@@ -29,6 +30,12 @@ This is a modern, responsive website built with Next.js that showcases the cafe'
 │   ├── robots.ts             # Robots configuration
 │   └── icon.svg              # Favicon
 ├── components/
+│   ├── animations/
+│   │   ├── FadeIn.tsx        # Fade-in reveal animation
+│   │   ├── ParallaxImage.tsx # Scroll parallax image
+│   │   ├── ScrollReveal.tsx  # Scroll-triggered reveal
+│   │   ├── HorizontalScroll.tsx # Horizontal scroll strip
+│   │   └── StickyStory.tsx   # Sticky storytelling section
 │   └── layout/
 │       ├── Header.tsx        # Sticky navigation with mobile menu
 │       └── Footer.tsx        # Footer with contact info
@@ -98,10 +105,11 @@ All cafe details (location, contact, Instagram) are in `lib/constants.ts`.
 
 The design system is defined in `tailwind.config.ts` and `app/globals.css`:
 
-- **Colors:** Warm cream, beige, espresso brown, wood tones, muted gold
-- **Fonts:** Cormorant Garamond (display), Inter (body), Caveat (script accent)
+- **Colors:** Warm ivory/parchment, deep espresso, clay/terracotta, warm brass, muted olive
+- **Fonts:** Cormorant Garamond (display), Manrope (body), Caveat (script accent)
 - **Shadows:** Warm, soft shadows instead of harsh dark ones
-- **Rounded corners:** Subtle, not excessive
+- **Texture:** Subtle paper grain overlay
+- **Animations:** Framer Motion scroll-driven reveals, parallax, sticky storytelling
 
 ## License
 
