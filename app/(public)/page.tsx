@@ -15,6 +15,11 @@ import Pizza from '@/components/illustrations/Pizza';
 import Sandwich from '@/components/illustrations/Sandwich';
 import Botanical from '@/components/illustrations/Botanical';
 import CafeStorefront from '@/components/illustrations/CafeStorefront';
+import OpeningStatus from '@/components/ui/OpeningStatus';
+import TimeAwareMessage from '@/components/ui/TimeAwareMessage';
+import DailyRhythm from '@/components/ui/DailyRhythm';
+import ExploreByMood from '@/components/ui/ExploreByMood';
+import ClayvioFavourites from '@/components/ui/ClayvioFavourites';
 
 export default function HomePage() {
   return (
@@ -33,7 +38,10 @@ export default function HomePage() {
         <div className="container-cafe relative z-10 pb-24 pt-32">
           <div className="max-w-2xl">
             <FadeIn delay={0.1}>
-              <p className="eyebrow text-brass-300">Clayvio Cafe · Sopore</p>
+              <div className="flex items-center gap-3">
+                <OpeningStatus />
+                <p className="eyebrow text-brass-300">Clayvio Cafe · Sopore</p>
+              </div>
             </FadeIn>
             <FadeIn delay={0.2}>
               <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight text-parchment-50 sm:text-6xl lg:text-7xl">
@@ -47,6 +55,9 @@ export default function HomePage() {
                 A warm corner for chai, coffee, good food and even better
                 conversations.
               </p>
+            </FadeIn>
+            <FadeIn delay={0.4}>
+              <TimeAwareMessage className="mt-6" />
             </FadeIn>
             <FadeIn delay={0.5}>
               <div className="mt-10 flex flex-wrap gap-4">
@@ -115,8 +126,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ STORY SECTION ============ */}
+      {/* ============ DAILY RHYTHM ============ */}
+      <DailyRhythm />
+
+      {/* ============ CLAYVIO FAVOURITES ============ */}
+      <section className="bg-parchment-100 py-24 sm:py-32">
+        <div className="container-cafe">
+          <ScrollReveal>
+            <ClayvioFavourites />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============ EXPLORE BY MOOD ============ */}
       <section className="bg-parchment-200 py-24 sm:py-32">
+        <div className="container-cafe">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <ScrollReveal>
+              <p className="eyebrow">What are you craving?</p>
+              <h2 className="heading-display mt-4">Explore by mood</h2>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal delay={0.1}>
+            <ExploreByMood />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============ STORY SECTION ============ */}
+      <section className="bg-parchment-100 py-24 sm:py-32">
         <div className="container-cafe">
           <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
             <div className="order-2 lg:order-1">

@@ -8,7 +8,7 @@ This is a modern, responsive website built with Next.js that showcases the cafe'
 
 ## Tech Stack
 
-- **Next.js 15** — React framework with App Router
+- **Next.js 16** — React framework with App Router
 - **TypeScript** — Type-safe development
 - **Tailwind CSS** — Utility-first styling
 - **Framer Motion** — Scroll-driven animations
@@ -36,12 +36,30 @@ This is a modern, responsive website built with Next.js that showcases the cafe'
 │   │   ├── ScrollReveal.tsx  # Scroll-triggered reveal
 │   │   ├── HorizontalScroll.tsx # Horizontal scroll strip
 │   │   └── StickyStory.tsx   # Sticky storytelling section
-│   └── layout/
-│       ├── Header.tsx        # Sticky navigation with mobile menu
-│       └── Footer.tsx        # Footer with contact info
+│   ├── layout/
+│   │   ├── Header.tsx        # Sticky navigation with mobile menu
+│   │   └── Footer.tsx        # Footer with contact info
+│   ├── illustrations/
+│   │   ├── KulhadChai.tsx    # SVG: traditional clay cup chai
+│   │   ├── CoffeeCup.tsx     # SVG: coffee cup
+│   │   ├── CafeTable.tsx     # SVG: cafe table
+│   │   ├── CafeInterior.tsx  # SVG: interior view
+│   │   ├── CafeStorefront.tsx # SVG: storefront
+│   │   ├── Pizza.tsx         # SVG: pizza
+│   │   ├── Sandwich.tsx      # SVG: sandwich
+│   │   ├── Shake.tsx         # SVG: milkshake
+│   │   └── Botanical.tsx     # SVG: botanical leaf
+│   └── ui/
+│       ├── OpeningStatus.tsx # Live open/closed status
+│       ├── TimeAwareMessage.tsx # Time-aware greeting
+│       ├── DailyRhythm.tsx   # Illustrated daily rhythm
+│       ├── ExploreByMood.tsx # Mood-based menu filtering
+│       ├── ClayvioFavourites.tsx # Favourite menu items
+│       └── ScrollProgress.tsx # Scroll progress indicator
 ├── lib/
 │   ├── constants.ts          # Cafe info
 │   ├── menu-data.ts          # Menu items & prices
+│   ├── opening-hours.ts      # Opening hours & time-aware logic
 │   └── utils.ts              # Helper functions
 └── package.json
 ```
@@ -100,6 +118,10 @@ All menu data is stored in `lib/menu-data.ts`. To update:
 ## Updating Cafe Information
 
 All cafe details (location, contact, Instagram) are in `lib/constants.ts`.
+
+## Opening Hours
+
+Opening hours are defined in `lib/opening-hours.ts`. The cafe is open daily from 9:00 AM to 8:30 PM (Asia/Calcutta timezone). The `OpeningStatus` and `TimeAwareMessage` components use this data to display live status and time-aware greetings.
 
 ## Design System
 
