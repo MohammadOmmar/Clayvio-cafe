@@ -74,8 +74,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-espresso-800 pt-6 text-center text-xs text-parchment-400">
-          © {new Date().getFullYear()} Clayvio Cafe. All rights reserved.
+        <div className="mt-12 border-t border-espresso-800 pt-6">
+          <div className="flex flex-col items-center gap-3 text-center text-xs text-parchment-400">
+            <span className="font-body uppercase tracking-[0.2em] text-espresso-500/60">
+              Designed by OMMANZ
+            </span>
+            <span>
+              © {new Date().getFullYear()} Clayvio Cafe. All rights reserved.
+            </span>
+          </div>
         </div>
       </div>
     </footer>

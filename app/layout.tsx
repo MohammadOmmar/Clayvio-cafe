@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Manrope, Caveat } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import DesignerSignature from '@/components/layout/DesignerSignature';
 import './globals.css';
 
 const display = Cormorant_Garamond({
@@ -71,6 +72,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <DesignerSignature />
       </body>
     </html>
   );
