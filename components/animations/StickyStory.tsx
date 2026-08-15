@@ -8,18 +8,18 @@ import {
   useMotionValueEvent,
   useReducedMotion,
 } from 'framer-motion';
-import Image from 'next/image';
+import { SVGProps, JSX } from 'react';
 
 interface StickyStoryProps {
   title: string;
   description: string;
-  images: { src: string; alt: string }[];
+  illustrations: { component: (props: SVGProps<SVGSVGElement>) => JSX.Element; alt: string }[];
 }
 
 export default function StickyStory({
   title,
   description,
-  images,
+  illustrations,
 }: StickyStoryProps) {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -32,8 +32,8 @@ export default function StickyStory({
 
   const activeImage = useTransform(scrollYProgress, (v) => {
     if (prefersReducedMotion) return 0;
-    const range = 1 / images.length;
-    return Math.min(Math.floor(v / range), images.length - 1);
+    const range = 1 / illustrations.length;
+    return Math.min(Math.floor(v / range), illustrations.length - 1);
   });
 
   useMotionValueEvent(activeImage, 'change', (latest) => {
@@ -52,24 +52,21 @@ export default function StickyStory({
             <p className="text-body mt-6">{description}</p>
           </div>
 
-          {/* Transitioning images */}
+          {/* Transitioning illustrations */}
           <div className="order-1 lg:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm-lg">
-              {images.map((image, index) => (
-                <div
-                  key={image.src}
-                  className="absolute inset-0 transition-opacity duration-700"
-                  style={{ opacity: index === activeIndex ? 1 : 0 }}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
-              ))}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm-lg">
+              {illustrations.map((illustration, index) => {
+                const Illustration = illustration.component;
+                return (
+                  <div
+                    key={illustration.alt}
+                    className="absolute inset-0 transition-opacity duration-700"
+                    style={{ opacity: index === activeIndex ? 1 : 0 }}
+                  >
+                    <Illustration className="h-full w-full object-cover" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

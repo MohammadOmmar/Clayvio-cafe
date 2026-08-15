@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { ArrowRight, Coffee, MapPin, Users } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 import FadeIn from '@/components/animations/FadeIn';
-import ParallaxImage from '@/components/animations/ParallaxImage';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import CafeInterior from '@/components/illustrations/CafeInterior';
+import CafeTable from '@/components/illustrations/CafeTable';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -70,14 +71,8 @@ export default function AboutPage() {
 
             <div className="order-1 lg:order-2">
               <ScrollReveal>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm-lg">
-                  <ParallaxImage
-                    src="/images/Screenshot_20260809_094443_Instagram.jpg"
-                    alt="Clayvio Cafe interior with warm wooden furniture"
-                    className="h-full w-full"
-                    parallaxAmount={40}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm-lg">
+                  <CafeInterior className="h-full w-full object-cover" />
                 </div>
               </ScrollReveal>
             </div>
@@ -158,13 +153,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-espresso-950 py-24 sm:py-32">
         <div className="absolute inset-0">
-          <ParallaxImage
-            src="/images/Screenshot_20260809_094555_Instagram.jpg"
-            alt=""
-            className="h-full w-full opacity-20"
-            parallaxAmount={40}
-            sizes="100vw"
-          />
+          <CafeTable className="h-full w-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-espresso-950 via-espresso-950/70 to-espresso-950" />
         </div>
 

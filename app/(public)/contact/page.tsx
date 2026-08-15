@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { MapPin, Phone, Instagram } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 import FadeIn from '@/components/animations/FadeIn';
-import ParallaxImage from '@/components/animations/ParallaxImage';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import CafeStorefront from '@/components/illustrations/CafeStorefront';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -97,16 +97,10 @@ export default function ContactPage() {
               </ScrollReveal>
             </div>
 
-            {/* Cafe image */}
+            {/* Cafe storefront illustration */}
             <ScrollReveal delay={0.15}>
-              <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-3xl shadow-warm-lg">
-                <ParallaxImage
-                  src="/images/Screenshot_20260809_094555_Instagram.jpg"
-                  alt="Clayvio Cafe interior with warm wooden ceiling and lighting"
-                  className="h-full w-full"
-                  parallaxAmount={40}
-                  sizes="(max-width: 1024px) 100vw, 768px"
-                />
+              <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm-lg">
+                <CafeStorefront className="h-full w-full object-cover" />
               </div>
             </ScrollReveal>
           </div>

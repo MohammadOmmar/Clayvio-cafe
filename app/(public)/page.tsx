@@ -1,28 +1,29 @@
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight, MapPin, Coffee } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 import FadeIn from '@/components/animations/FadeIn';
-import ParallaxImage from '@/components/animations/ParallaxImage';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import HorizontalScroll from '@/components/animations/HorizontalScroll';
 import StickyStory from '@/components/animations/StickyStory';
+import CafeTable from '@/components/illustrations/CafeTable';
+import CafeInterior from '@/components/illustrations/CafeInterior';
+import KulhadChai from '@/components/illustrations/KulhadChai';
+import CoffeeCup from '@/components/illustrations/CoffeeCup';
+import Pizza from '@/components/illustrations/Pizza';
+import Sandwich from '@/components/illustrations/Sandwich';
+import Botanical from '@/components/illustrations/Botanical';
+import CafeStorefront from '@/components/illustrations/CafeStorefront';
 
 export default function HomePage() {
   return (
     <>
       {/* ============ CINEMATIC HERO ============ */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-espresso-950">
-        {/* Background image with parallax */}
+        {/* Background illustration */}
         <div className="absolute inset-0">
-          <ParallaxImage
-            src="/images/Screenshot_20260809_094443_Instagram.jpg"
-            alt="Clayvio Cafe cozy interior with warm wooden furniture and warm lighting"
-            className="h-full w-full"
-            parallaxAmount={60}
-            priority
-            sizes="100vw"
-          />
+          <CafeTable className="h-full w-full object-cover opacity-30" />
           {/* Warm dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-espresso-950 via-espresso-950/60 to-espresso-950/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-espresso-950/70 via-transparent to-transparent" />
@@ -103,18 +104,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ LARGE EDITORIAL IMAGE ============ */}
+      {/* ============ LARGE EDITORIAL ILLUSTRATION ============ */}
       <section className="bg-parchment-100 pb-24 sm:pb-32">
         <div className="container-cafe">
           <ScrollReveal>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-3xl shadow-warm-lg">
-              <ParallaxImage
-                src="/images/Screenshot_20260809_094555_Instagram.jpg"
-                alt="Clayvio Cafe interior with wood slat ceiling and warm pendant lighting"
-                className="h-full w-full"
-                parallaxAmount={50}
-                sizes="(max-width: 1280px) 100vw, 1280px"
-              />
+            <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm-lg">
+              <CafeInterior className="h-full w-full object-cover" />
             </div>
           </ScrollReveal>
         </div>
@@ -159,14 +154,8 @@ export default function HomePage() {
 
             <div className="order-1 lg:order-2">
               <ScrollReveal>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm-lg">
-                  <ParallaxImage
-                    src="/images/Screenshot_20260809_094443_Instagram.jpg"
-                    alt="Clayvio Cafe interior with wooden furniture and warm lighting"
-                    className="h-full w-full"
-                    parallaxAmount={40}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm-lg">
+                  <KulhadChai className="h-full w-full object-cover" />
                 </div>
               </ScrollReveal>
             </div>
@@ -198,37 +187,30 @@ export default function HomePage() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                image: '/images/Screenshot_20260809_094514_Instagram.jpg',
+                icon: KulhadChai,
                 title: 'Kulhad Chai',
                 desc: 'Freshly brewed, served in traditional clay cups.',
               },
               {
-                image: '/images/Screenshot_20260809_094526_Instagram.jpg',
+                icon: CoffeeCup,
                 title: 'Cold Coffee',
                 desc: 'Creamy, chilled, and made to order.',
               },
               {
-                image: '/images/Screenshot_20260809_094539_Instagram.jpg',
+                icon: Pizza,
                 title: 'Pizza',
                 desc: 'Hot, cheesy, and satisfying.',
               },
               {
-                image: '/images/Screenshot_20260809_094615_Instagram.jpg',
+                icon: Sandwich,
                 title: 'Snacks & More',
                 desc: 'Sandwiches, bites, shakes, and mojitos.',
               },
             ].map((item, index) => (
               <ScrollReveal key={item.title} delay={index * 0.08}>
                 <Link href="/menu" className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-warm-sm transition-shadow duration-500 group-hover:shadow-warm-lg">
-                    <Image
-                      src={item.image}
-                      alt={item.desc}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-espresso-950/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-espresso-900/10 bg-parchment-50 shadow-warm-sm transition-shadow duration-500 group-hover:shadow-warm-lg">
+                    <item.icon className="h-full w-full object-cover p-8 transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="mt-4">
                     <h3 className="font-display text-xl font-semibold text-espresso-900">
@@ -254,17 +236,17 @@ export default function HomePage() {
       <StickyStory
         title="Made fresh. Served warm."
         description="Every cup of chai is brewed to order. Every sandwich is made when you ask for it. Every pizza comes out of the oven hot and golden. That's the Clayvio promise — simple, honest, and always fresh."
-        images={[
+        illustrations={[
           {
-            src: '/images/Screenshot_20260809_094514_Instagram.jpg',
+            component: KulhadChai,
             alt: 'Clayvio Cafe chai served in traditional kulhad cups',
           },
           {
-            src: '/images/Screenshot_20260809_094526_Instagram.jpg',
+            component: CoffeeCup,
             alt: 'Clayvio Cafe cold coffee with cream',
           },
           {
-            src: '/images/Screenshot_20260809_094539_Instagram.jpg',
+            component: Pizza,
             alt: 'Clayvio Cafe pizza fresh from the oven',
           },
         ]}
@@ -284,25 +266,13 @@ export default function HomePage() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <ScrollReveal className="sm:col-span-2 lg:col-span-2">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-warm">
-                <ParallaxImage
-                  src="/images/Screenshot_20260809_094457_Instagram.jpg"
-                  alt="Clayvio Cafe menu board and interior"
-                  className="h-full w-full"
-                  parallaxAmount={30}
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                />
+              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm">
+                <CafeInterior className="h-full w-full object-cover" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-warm">
-                <ParallaxImage
-                  src="/images/Screenshot_20260809_094555_Instagram.jpg"
-                  alt="Clayvio Cafe wood slat ceiling and pendant lighting"
-                  className="h-full w-full"
-                  parallaxAmount={30}
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-espresso-900/10 bg-parchment-50 shadow-warm">
+                <Botanical className="h-full w-full object-cover" />
               </div>
             </ScrollReveal>
           </div>
@@ -312,13 +282,7 @@ export default function HomePage() {
       {/* ============ VISIT / LOCATION ============ */}
       <section className="relative overflow-hidden bg-espresso-950 py-24 sm:py-32">
         <div className="absolute inset-0">
-          <ParallaxImage
-            src="/images/Screenshot_20260809_094443_Instagram.jpg"
-            alt=""
-            className="h-full w-full opacity-20"
-            parallaxAmount={40}
-            sizes="100vw"
-          />
+          <CafeStorefront className="h-full w-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-espresso-950 via-espresso-950/70 to-espresso-950" />
         </div>
 

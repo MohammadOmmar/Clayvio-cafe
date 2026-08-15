@@ -2,6 +2,25 @@ import type { Metadata } from 'next';
 import { menuCategories } from '@/lib/menu-data';
 import { formatPrice } from '@/lib/utils';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import KulhadChai from '@/components/illustrations/KulhadChai';
+import CoffeeCup from '@/components/illustrations/CoffeeCup';
+import Pizza from '@/components/illustrations/Pizza';
+import Sandwich from '@/components/illustrations/Sandwich';
+import Shake from '@/components/illustrations/Shake';
+import Botanical from '@/components/illustrations/Botanical';
+import { SVGProps, JSX } from 'react';
+
+// Map menu categories to their illustrations
+const CATEGORY_ILLUSTRATIONS: Record<string, (props: SVGProps<SVGSVGElement>) => JSX.Element> = {
+  'Large Chai (Kulhad)': KulhadChai,
+  'Chai': KulhadChai,
+  'Coffee': CoffeeCup,
+  'Pizza': Pizza,
+  'Sandwiches': Sandwich,
+  'Shakes': Shake,
+  'Mojitos': Shake,
+  'Bites': Sandwich,
+};
 
 export const metadata: Metadata = {
   title: 'Menu',
@@ -89,13 +108,21 @@ export default function MenuPage() {
             >
               {/* Category header */}
               <ScrollReveal>
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-sm font-medium text-clay-600">
-                    {String(categoryIndex + 1).padStart(2, '0')}
-                  </span>
-                  <h2 className="font-display text-3xl font-semibold tracking-tight text-espresso-900 sm:text-4xl">
-                    {category.name}
-                  </h2>
+                <div className="flex items-center gap-6">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-espresso-900/10 bg-parchment-50">
+                    {(() => {
+                      const Illustration = CATEGORY_ILLUSTRATIONS[category.name] ?? Botanical;
+                      return <Illustration className="h-12 w-12" />;
+                    })()}
+                  </div>
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-display text-sm font-medium text-clay-600">
+                      {String(categoryIndex + 1).padStart(2, '0')}
+                    </span>
+                    <h2 className="font-display text-3xl font-semibold tracking-tight text-espresso-900 sm:text-4xl">
+                      {category.name}
+                    </h2>
+                  </div>
                 </div>
                 {category.note && (
                   <p className="mt-3 text-sm font-medium uppercase tracking-wide text-espresso-500">
