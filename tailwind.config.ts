@@ -87,17 +87,20 @@ const config: Config = {
         script: ["var(--font-script)", "cursive"],
       },
       boxShadow: {
-        // Warm soft shadows — subtle, tactile
         warm: "0 4px 24px -8px rgba(42, 27, 22, 0.12)",
         "warm-lg": "0 8px 40px -12px rgba(42, 27, 22, 0.16)",
         "warm-sm": "0 2px 12px -4px rgba(42, 27, 22, 0.08)",
         "inner-warm": "inset 0 2px 8px rgba(42, 27, 22, 0.06)",
+        editorial: "0 20px 60px -15px rgba(42, 27, 22, 0.2)",
+        "editorial-lg": "0 30px 80px -20px rgba(42, 27, 22, 0.25)",
       },
       borderRadius: {
         "4xl": "2rem",
+        "5xl": "2.5rem",
       },
       letterSpacing: {
         eyebrow: "0.2em",
+        "eyebrow-lg": "0.3em",
       },
       keyframes: {
         "fade-in": {
@@ -118,12 +121,32 @@ const config: Config = {
           "51%": { transform: "scaleY(1)", transformOrigin: "bottom" },
           "100%": { transform: "scaleY(0)", transformOrigin: "bottom" },
         },
+        "clip-reveal": {
+          from: { clipPath: "inset(100% 0 0 0)" },
+          to: { clipPath: "inset(0 0 0 0)" },
+        },
+        "text-reveal": {
+          from: { transform: "translateY(110%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "line-grow": {
+          from: { transform: "scaleX(0)" },
+          to: { transform: "scaleX(1)" },
+        },
+        "image-scale": {
+          from: { transform: "scale(1.15)" },
+          to: { transform: "scale(1)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out both",
         "slide-up": "slide-up 0.6s ease-out both",
         "slow-zoom": "slow-zoom 8s ease-in-out infinite alternate",
         "scroll-line": "scroll-line 2s ease-in-out infinite",
+        "clip-reveal": "clip-reveal 0.9s cubic-bezier(0.77, 0, 0.175, 1) both",
+        "text-reveal": "text-reveal 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98) both",
+        "line-grow": "line-grow 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98) both",
+        "image-scale": "image-scale 1.2s cubic-bezier(0.21, 0.47, 0.32, 0.98) both",
       },
     },
   },

@@ -4,6 +4,7 @@ import { ArrowRight, Coffee, MapPin, Users } from 'lucide-react';
 import { CAFE } from '@/lib/constants';
 import FadeIn from '@/components/animations/FadeIn';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import RevealImage from '@/components/animations/RevealImage';
 import CafeInterior from '@/components/illustrations/CafeInterior';
 import CafeTable from '@/components/illustrations/CafeTable';
 
@@ -25,8 +26,8 @@ export default function AboutPage() {
 
         <div className="container-cafe relative z-10 text-center">
           <FadeIn>
-            <p className="eyebrow text-brass-300">About Clayvio</p>
-            <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-parchment-50 sm:text-6xl lg:text-7xl">
+            <p className="eyebrow-light">About Clayvio</p>
+            <h1 className="mt-6 text-display-xl text-parchment-50">
               Our Cafe
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-parchment-200">
@@ -43,7 +44,7 @@ export default function AboutPage() {
             <div className="order-2 lg:order-1">
               <ScrollReveal>
                 <p className="eyebrow">Our Story</p>
-                <h2 className="heading-display mt-4">
+                <h2 className="mt-4 text-display text-balance text-espresso-900">
                   Some places are built.
                   <br />
                   Others become part of your routine.
@@ -85,7 +86,7 @@ export default function AboutPage() {
         <div className="container-cafe">
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
-              <p className="font-script text-4xl text-clay-600 sm:text-5xl">
+              <p className="font-script text-3xl text-clay-600 sm:text-4xl">
                 &ldquo;Good chai, warm conversations and a place to stay
                 awhile.&rdquo;
               </p>
@@ -95,53 +96,55 @@ export default function AboutPage() {
       </section>
 
       {/* What defines us */}
-      <section className="bg-parchment-100 py-24 sm:py-32">
+      <section className="section-editorial bg-parchment-100">
         <div className="container-cafe">
           <div className="mx-auto max-w-2xl text-center">
             <ScrollReveal>
               <p className="eyebrow">What Defines Clayvio</p>
-              <h2 className="heading-display mt-4">Three things we hold close</h2>
+              <h2 className="mt-4 text-display text-balance text-espresso-900">
+                Three things we hold close.
+              </h2>
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 grid gap-10 sm:grid-cols-3">
+          <div className="mt-16 grid gap-8 sm:grid-cols-3">
             <ScrollReveal delay={0.05}>
-              <div className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-clay-100">
-                  <Coffee className="h-7 w-7 text-clay-600" aria-hidden="true" />
+              <div className="border-b border-espresso-900/8 pb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-50">
+                  <Coffee className="h-6 w-6 text-clay-600" aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-espresso-900">
                   Kulhad Chai
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-espresso-600">
+                <p className="mt-3 text-body-editorial">
                   Traditional chai served in authentic clay kulhads — the way
-                  it's meant to be enjoyed.
+                  it is meant to be enjoyed.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-clay-100">
-                  <Users className="h-7 w-7 text-clay-600" aria-hidden="true" />
+              <div className="border-b border-espresso-900/8 pb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-50">
+                  <Users className="h-6 w-6 text-clay-600" aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-espresso-900">
                   Community
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-espresso-600">
+                <p className="mt-3 text-body-editorial">
                   A warm, welcoming space for friends, family, and the local
                   community to gather.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <div className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-clay-100">
-                  <MapPin className="h-7 w-7 text-clay-600" aria-hidden="true" />
+              <div className="border-b border-espresso-900/8 pb-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clay-50">
+                  <MapPin className="h-6 w-6 text-clay-600" aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-espresso-900">
                   In Sopore
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-espresso-600">
+                <p className="mt-3 text-body-editorial">
                   Located at {CAFE.location}, near {CAFE.locationDetail}.
                 </p>
               </div>
@@ -151,7 +154,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-espresso-950 py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-espresso-950 section-editorial">
         <div className="absolute inset-0">
           <CafeTable className="h-full w-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-espresso-950 via-espresso-950/70 to-espresso-950" />
@@ -160,21 +163,21 @@ export default function AboutPage() {
         <div className="container-cafe relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <ScrollReveal>
-              <p className="eyebrow text-brass-300">Come Experience It</p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-parchment-50 sm:text-5xl">
+              <p className="eyebrow-light">Come Experience It</p>
+              <h2 className="mt-4 text-display-lg text-parchment-50 text-balance">
                 Come sit with us.
               </h2>
               <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-parchment-200">
                 Explore our menu or visit us to see the cafe in person.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-4">
-                <Link href="/menu" className="btn-primary">
+                <Link href="/menu" className="btn-editorial-primary">
                   View Menu
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="btn-secondary border-parchment-50/40 text-parchment-50 hover:bg-parchment-50/10 hover:border-parchment-50"
+                  className="btn-editorial border border-parchment-50/30 text-parchment-50 hover:bg-parchment-50/10 hover:border-parchment-50"
                 >
                   Contact Us
                 </Link>

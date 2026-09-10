@@ -68,8 +68,8 @@ export default function MenuPage() {
         </div>
 
         <div className="container-cafe relative z-10 text-center">
-          <p className="eyebrow text-brass-300">Clayvio Cafe</p>
-          <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-parchment-50 sm:text-6xl lg:text-7xl">
+          <p className="eyebrow-light">Clayvio Cafe</p>
+          <h1 className="mt-6 text-display-xl text-parchment-50">
             The Menu
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-parchment-200">
@@ -109,17 +109,17 @@ export default function MenuPage() {
               {/* Category header */}
               <ScrollReveal>
                 <div className="flex items-center gap-6">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-espresso-900/10 bg-parchment-50">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-espresso-900/8 bg-parchment-50">
                     {(() => {
                       const Illustration = CATEGORY_ILLUSTRATIONS[category.name] ?? Botanical;
-                      return <Illustration className="h-12 w-12" />;
+                      return <Illustration className="h-10 w-10" />;
                     })()}
                   </div>
                   <div className="flex items-baseline gap-4">
-                    <span className="font-display text-sm font-medium text-clay-600">
+                    <span className="font-display text-sm font-medium text-clay-500">
                       {String(categoryIndex + 1).padStart(2, '0')}
                     </span>
-                    <h2 className="font-display text-3xl font-semibold tracking-tight text-espresso-900 sm:text-4xl">
+                    <h2 className="font-display text-2xl font-semibold tracking-tight text-espresso-900 sm:text-3xl">
                       {category.name}
                     </h2>
                   </div>
@@ -133,10 +133,10 @@ export default function MenuPage() {
               </ScrollReveal>
 
               {/* Items */}
-              <div className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+              <div className="mt-10 grid gap-x-12 gap-y-6 sm:grid-cols-2">
                 {category.items.map((item, itemIndex) => (
-                  <ScrollReveal key={item.name} delay={itemIndex * 0.05}>
-                    <div className="group flex items-start justify-between gap-6 border-b border-parchment-200 pb-5 transition-colors duration-300 hover:border-clay-400/50">
+                  <ScrollReveal key={item.name} delay={itemIndex * 0.03}>
+                    <div className="group flex items-start justify-between gap-6 border-b border-espresso-900/8 pb-4 transition-colors duration-300 hover:border-clay-400/50">
                       <div>
                         <h3 className="font-display text-lg font-medium text-espresso-900 transition-colors duration-300 group-hover:text-clay-700 sm:text-xl">
                           {item.name}

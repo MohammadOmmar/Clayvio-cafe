@@ -94,16 +94,16 @@ export default function ExploreByMood() {
   return (
     <div>
       {/* Mood selector */}
-      <div className="no-scrollbar flex gap-3 overflow-x-auto pb-2">
+      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-2">
         {MOODS.map((mood) => (
           <button
             key={mood.id}
             type="button"
             onClick={() => setActiveMood(mood.id)}
-            className={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+            className={`shrink-0 rounded-full border px-5 py-2.5 text-xs font-medium uppercase tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
               activeMood === mood.id
                 ? 'border-espresso-800 bg-espresso-800 text-parchment-50'
-                : 'border-espresso-300 text-espresso-700 hover:border-espresso-500'
+                : 'border-espresso-200 text-espresso-600 hover:border-espresso-400 hover:bg-espresso-50'
             }`}
           >
             {mood.label}
@@ -120,18 +120,21 @@ export default function ExploreByMood() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="grid gap-x-10 gap-y-6 sm:grid-cols-2"
+            className="grid gap-x-10 gap-y-5 sm:grid-cols-2"
           >
-            {filteredItems.slice(0, 8).map((item) => (
-              <div
+            {filteredItems.slice(0, 8).map((item, index) => (
+              <motion.div
                 key={`${item.category}-${item.name}`}
-                className="flex items-start justify-between gap-4 border-b border-parchment-200 pb-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.03 }}
+                className="group flex items-start justify-between gap-4 border-b border-espresso-900/8 pb-4 transition-colors duration-300 hover:border-clay-400/50"
               >
                 <div>
-                  <p className="text-[10px] uppercase tracking-wide text-clay-600">
+                  <p className="text-[10px] uppercase tracking-eyebrow text-clay-500">
                     {item.category}
                   </p>
-                  <h3 className="mt-1 font-display text-lg font-medium text-espresso-900">
+                  <h3 className="mt-1 font-display text-lg font-medium text-espresso-900 transition-colors duration-300 group-hover:text-clay-700">
                     {item.name}
                   </h3>
                 </div>
@@ -150,7 +153,7 @@ export default function ExploreByMood() {
                     </p>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>

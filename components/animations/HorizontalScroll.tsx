@@ -23,25 +23,25 @@ export default function HorizontalScroll({
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    prefersReducedMotion ? ['0%', '0%'] : ['0%', '-15%']
+    prefersReducedMotion ? ['0%', '0%'] : ['0%', '-12%']
   );
 
   return (
     <div ref={ref} className={`overflow-hidden ${className ?? ''}`}>
       <motion.div
         style={{ x }}
-        className="flex items-center gap-8 whitespace-nowrap py-8 sm:gap-12"
+        className="flex items-center gap-10 whitespace-nowrap py-6 sm:gap-14"
       >
         {items.map((item, index) => (
           <span
             key={item}
-            className="flex items-center gap-8 sm:gap-12"
+            className="flex items-center gap-10 sm:gap-14"
           >
-            <span className="font-display text-4xl font-medium tracking-tight text-espresso-800/80 sm:text-5xl lg:text-6xl">
+            <span className="font-display text-5xl font-medium tracking-tight text-espresso-800/70 sm:text-6xl lg:text-7xl">
               {item}
             </span>
             {index < items.length - 1 && (
-              <span className="h-2 w-2 rounded-full bg-clay-500/60" aria-hidden="true" />
+              <span className="h-1.5 w-1.5 rounded-full bg-clay-400/50" aria-hidden="true" />
             )}
           </span>
         ))}
